@@ -5,80 +5,75 @@
 	<div class="database">
 
 		<div class="title">
-			<h1>Film Flix</h1>
-		</div>
-
-		<div>
-		{{ message }}
+			<h1>Film Flix {{ message }}</h1>
 		</div>
 
 		<div class="form">
 			<form method="POST" action="">
 			{{ form.hidden_tag() }}
-			<div>
-				<fieldset>
-					<legend><h3>Add a Film</h3></legend>
-					<label for="title">Title:</label>
-					<br>
-					<input type="text" id="title" name="title">
-					<br>
-					<label for="year_released">Year Released:</label>
-					<br>
-					<input type="number" id="year_released" name="year_released" min="1880">
-					<br>
-					<label for="rating">Rating:</label>
-					<br>
-					<input type="text" id="rating" name="rating">
-					<br>
-					<label for="genre">Genre:</label>
-					<br>
-					<input type="text" id="genre" name="genre">
-					<br>
-					<label for="duration">Duration:</label>
-					<br>
-					<input type="number" id="duration" name="duration">
-					<br>
-				</fieldset>
-			</div>
 
-			<div>
-				<fieldset>
-					<legend><h3>Amend Film Details</h3></legend>
-					<label for="film_id">Film ID</label>
-					<br>
-					<input type="number" id="film_id" name="film_id">
-					<br>
-					<label for="fieldname">Field To Amend:</label>
-					<br>
-					<input type="text" id="fieldname" name="fieldname">
-					<br>
-					<label for="fieldvalue">New value:</label>
-					<br>
-					<input type="text" id="fieldvalue" name="fieldvalue">
-					<br>
-				</fieldset>
-			</div>
+			<div class="my_fieldsets">
+				<div>
+					<fieldset>
+						<legend><h3>Add a Film</h3></legend>
+						<label for="title">Title:</label>
+						<br>
+						<input type="text" id="title" name="title">
+						<br>
+						<label for="year_released">Year Released:</label>
+						<br>
+						<input type="number" id="year_released" name="year_released" min="1880">
+						<br>
+						<label for="rating">Rating:</label>
+						<br>
+						<input type="text" id="rating" name="rating">
+						<br>
+						<label for="genre">Genre:</label>
+						<br>
+						<input type="text" id="genre" name="genre">
+						<br>
+						<label for="duration">Duration:</label>
+						<br>
+						<input type="number" id="duration" name="duration">
+						<br>
+					</fieldset>
+				</div>
 
-			<div>
-				<fieldset>
-					<legend><h3>Remove a film</h3></legend>
-					<label for="id_to_delete">Film ID</label>
-					<br>
-					<input type="number" id="id_to_delete" name="id_to_delete">
-					<br>
-				</fieldset>
-			</div>
+				<div>
+					<fieldset>
+						<legend><h3>Amend Film Details</h3></legend>
+						<label for="film_id">Film ID</label>
+						<br>
+						<input type="number" id="film_id" name="film_id">
+						<br>
+						<label for="fieldname">Field To Amend:</label>
+						<br>
+						<input type="text" id="fieldname" name="fieldname">
+						<br>
+						<label for="fieldvalue">New value:</label>
+						<br>
+						<input type="text" id="fieldvalue" name="fieldvalue">
+						<br>
+					</fieldset>
+				</div>
 
-			<button type="submit">Submit</button>
+				<div>
+					<fieldset>
+						<legend><h3>Remove a film</h3></legend>
+						<label for="id_to_delete">Film ID</label>
+						<br>
+						<input type="number" id="id_to_delete" name="id_to_delete">
+						<br>
+					</fieldset>
+				</div>
+
+				<button type="submit">Submit</button>
+			</div>
 		</form>
 		</div>
 
-		<div>
-			{{ confirmation }}
-		</div>
-
-		<div>
-			<h2>Results</h2>
+		<div>	
+			<h2>Results {{ confirmation }}</h2>
 			<table>
 				<tr>
 					<th>Film ID</th>
