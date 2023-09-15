@@ -11,16 +11,52 @@ body {
 	background-color: var(--seafoam);
 	color: var(--umber);
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin: 20px;
 }
 
 .title {
 	background-color: var(--wintergreen);
-	color: var(--twinflame);
-	font-size: 1.5rem;
+	color: var(--white);
+	font-size: 2rem;
 	border-radius: 10px;
+	padding: 25px;
 }
 
 .database {
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+button {
+	background-color: var(--twinflame);
+	color: var(--white);
+	border-radius: 5px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	padding: 0px 25px;
+	font-size: 3rem;
+	font-weight: 400;
+}
+
+fieldset {
+	border-radius: 5px;
+	color: var(--umber);
+	border-color: var(--umber);
+}
+
+.form {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 15px 0px;
+}
+
+input {
+	accent-color: var(--pistachio);
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-size: 1.5rem;
+	border-radius: 5px;
+	border-color: var(--umber);
+	background-color: var(--pistachio);
+	color: var(--umber);
+	padding: 5px 10px;
 }

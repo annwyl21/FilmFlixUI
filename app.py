@@ -9,13 +9,12 @@ endpoint = 'https://filmflixrestapi.onrender.com/'
 def index():
 	path = 'api/films'
 	url = endpoint + path
-	#print(url)
 
 	request = requests.get(url)
 	response = request.json()
 
-	film_list = response
-	return render_template('index.html', film_list = film_list)
+	films = response
+	return render_template('index.html', films=films)
 
 if __name__ == '__main__':
 	app.run(debug=True)
