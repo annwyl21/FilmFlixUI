@@ -62,15 +62,19 @@
 			<div>
 				<fieldset>
 					<legend><h3>Remove a film</h3></legend>
-					<label for="film_id">Film ID</label>
+					<label for="id_to_delete">Film ID</label>
 					<br>
-					<input type="number" id="film_id" name="film_id">
+					<input type="number" id="id_to_delete" name="id_to_delete">
 					<br>
 				</fieldset>
 			</div>
 
 			<button type="submit">Submit</button>
 		</form>
+		</div>
+
+		<div>
+			{{ confirmation }}
 		</div>
 
 		<div>
@@ -86,7 +90,7 @@
 				</tr>
 				{% for film in films %}
 				<tr>
-					<td>{{ film['film_id'] }}</td>
+					<td>{{ film['id'] }}</td>
 					<td>{{ film['title'] }}</td>
 					<td>{{ film['year_released'] }}</td>
 					<td>{{ film['rating'] }}</td>

@@ -8,5 +8,10 @@ class DetailsForm(FlaskForm):
 	rating = StringField('rating')
 	genre = StringField('genre')
 	duration = IntegerField('duration')
+
+	fieldname = StringField('fieldname')
+	fieldvalue = StringField('fieldvalue')
+
+	id_to_delete = IntegerField('id_to_delete')
 	
 	submit = SubmitField('Submit')
