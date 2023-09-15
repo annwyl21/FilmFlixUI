@@ -1,3 +1,7 @@
+import requests
+from flask import Flask, jsonify, render_template, request
+
+
 class ApiConnect():
 	def __init__(self):
 		self.endpoint = 'https://filmflixrestapi.onrender.com/'
