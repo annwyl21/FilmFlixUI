@@ -9,6 +9,9 @@
 		</div>
 
 		<div class="form">
+			{{ message }}
+			<form method="POST" action="">
+			{{ form.hidden_tag() }}
 			<div>
 				<fieldset>
 					<legend><h3>Add a Film</h3></legend>
@@ -18,7 +21,7 @@
 					<br>
 					<label for="year_released">Year Released:</label>
 					<br>
-					<input type="text" id="year_released" name="year_released">
+					<input type="number" id="year_released" name="year_released" min="1880">
 					<br>
 					<label for="rating">Rating:</label>
 					<br>
@@ -30,7 +33,7 @@
 					<br>
 					<label for="duration">Duration:</label>
 					<br>
-					<input type="text" id="duration" name="duration">
+					<input type="number" id="duration" name="duration">
 					<br>
 				</fieldset>
 			</div>
@@ -64,6 +67,7 @@
 			</div>
 
 			<button type="submit">Submit</button>
+		</form>
 		</div>
 
 		<div>
