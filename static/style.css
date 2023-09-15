@@ -1,0 +1,26 @@
+:root {
+	--umber: #352c24;
+	--wintergreen: #49785f;
+	--seafoam: #b4daa7;
+	--pistachio: #f5f4c3;
+	--twinflame: #c2552e;
+	--white: white;
+}
+
+body {
+	background-color: var(--seafoam);
+	color: var(--umber);
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.title {
+	background-color: var(--wintergreen);
+	color: var(--twinflame);
+	font-size: 1.5rem;
+	border-radius: 10px;
+}
+
+.database {
+	display: flex;
+	flex-wrap: wrap;
+}
