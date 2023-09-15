@@ -3,3 +3,5 @@ from flask_wtf import FlaskForm
 
 class DetailsForm(FlaskForm):
 	title = StringField('title')
+
+	submit = SubmitField('Submit')

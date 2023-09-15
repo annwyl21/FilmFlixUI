@@ -1,10 +1,12 @@
-class ApiConnect()
+class ApiConnect():
 	def __init__(self):
 		self.endpoint = 'https://filmflixrestapi.onrender.com/'
 
 	def get_films(self):
 		path = 'api/films'
-		url = endpoint + path
+		url = self.endpoint + path
+
+		print(url)
 
 		request = requests.get(url)
 		response = request.json()
