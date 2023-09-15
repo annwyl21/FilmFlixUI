@@ -1,20 +1,6 @@
-from flask import Flask, jsonify, render_template, request
-import requests
+from application import app
 
-app = Flask(__name__)
+app.config['SECRET_KEY'] = 'YOUR_SECRET_KEY'
 
-endpoint = 'https://filmflixrestapi.onrender.com/'
-
-@app.route('/')
-def index():
-	path = 'api/films'
-	url = endpoint + path
-
-	request = requests.get(url)
-	response = request.json()
-
-	films = response
-	return render_template('index.html', films=films)
-
-if __name__ == '__main__':
-	app.run(debug=True)
+if __name__ == "__main__":
+    app.run()

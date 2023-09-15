@@ -60,3 +60,10 @@ input {
 	color: var(--umber);
 	padding: 5px 10px;
 }
+
+@media screen and (max-width: 700px){
+	.form {
+		display: flex;
+		flex-direction: column;
+	}
+}
