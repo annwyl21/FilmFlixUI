@@ -15,6 +15,20 @@ class ApiConnect():
 
 		films = response
 		return films
+	
+	def check_film(self, word_to_lookup):
+		path = 'api/check'
+		url = self.endpoint + path
+
+		headers = {
+			'Content-type': 'application/json'
+		}
+
+		request = requests.post(url, headers=headers, json=word_to_lookup)
+		response = request.json()
+
+		confirmation = response
+		return confirmation
 
 	def add_film(self, add_dict):
 		path = 'api/add'

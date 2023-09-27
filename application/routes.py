@@ -13,6 +13,7 @@ def index():
 	form = DetailsForm()
 
 	if request.method == 'POST':
+		word_to_lookup = form.word_to_lookup.data
 		film_id = form.film_id.data
 		title = form.title.data
 		year_released = form.year_released.data
@@ -30,6 +31,10 @@ def index():
 		elif film_id and fieldname and fieldvalue:
 			update = {'film_id': film_id, 'fieldname': fieldname, 'fieldvalue': fieldvalue}
 			confirm = my_api.update_film(update)
+
+		elif word_to_lookup:
+			check = {'word': word_to_lookup}
+			confirm = my_api.check_film(check)
 
 		elif id_to_delete:
 			confirm = my_api.delete_film(id_to_delete)

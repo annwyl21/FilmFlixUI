@@ -8,6 +8,7 @@ class DetailsForm(FlaskForm):
 	rating = StringField('rating')
 	genre = StringField('genre')
 	duration = IntegerField('duration')
+	word_to_lookup = StringField('word_to_lookup')
 
 	fieldname = StringField('fieldname')
 	fieldvalue = StringField('fieldvalue')
