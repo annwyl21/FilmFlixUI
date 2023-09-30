@@ -3,14 +3,16 @@ from application import app
 import requests
 from application.forms import DetailsForm
 from application.api_connections import ApiConnect
+import datetime
 
 my_api = ApiConnect()
+today = datetime.date.today()
+year = today.year
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	films = my_api.get_tail()
 	error = ''
-	selections = {}
 	form = DetailsForm()
 
 	if request.method == 'POST':
@@ -18,17 +20,17 @@ def index():
 
 		if word_to_lookup:
 			check = {'word': word_to_lookup}
-			films_found = my_api.check_film(check)
+			search_results = my_api.check_film(check)
 
 		else:
 			error = 'Required Information Incomplete'
 		films = my_api.get_tail()
-		return render_template('index.html', form=form, films=films, films_found=films_found)
+		return render_template('index.html', form=form, films=films, search_results=search_results)
 		 
 	return render_template('index.html', form=form, films=films, message=error, confirmation='')
 
-@app.route('/admin', methods=['GET', 'POST'])
-def admin():
+@app.route('/admin/<action>', methods=['GET', 'POST'])
+def admin(action):
 	films = my_api.get_films()
 	selections = my_api.populate_field_selection()
 	ratings = selections['distinct_ratings']
@@ -43,6 +45,11 @@ def admin():
 		year_released = form.year_released.data
 		rating = form.rating.data
 		genre = form.genre.data
+
+		for num, distinct_genre in enumerate(genres, 1):
+			if genre == str(num):
+				genre = distinct_genre
+
 		duration = form.duration.data
 		fieldname = form.fieldname.data
 		fieldvalue = form.fieldvalue.data
@@ -64,8 +71,9 @@ def admin():
 			confirm = my_api.delete_film(id_to_delete)
 
 		else:
-			error = 'Required Information Incomplete'
+			error = 'Incomplete Information not submitted'
+			confirm = ''
 		films = my_api.get_films()
-		return render_template('admin.html', form=form, films=films, confirmation=confirm)
+		return render_template('admin.html', form=form, films=films, message=error, confirmation=confirm)
 		 
-	return render_template('admin.html', form=form, films=films, message=error, confirmation='', ratings=ratings, genres=genres)
+	return render_template('admin.html', form=form, films=films, message=error, confirmation='', ratings=ratings, genres=genres, action=action, year=year)

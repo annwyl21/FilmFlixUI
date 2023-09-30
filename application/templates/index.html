@@ -31,44 +31,41 @@
 			
 			<div>
 				<button type="submit">Submit</button>
-				<button id="admin"><a href="./admin">Admin</a></button>
+				<button id="admin"><a href="./admin/none">Admin</a></button>
 			</div>
 			
 		</form>
 		</div>
 
 		<div>
-			{% if films_found %}
+			{% if search_results %}
 				<fieldset>
-					{% for bool, result in films_found.items() %}
-						{% if bool == 'not found' %}
-							<legend><h2>Result {{ bool }}</h2></legend>
-							<p>{{ result }}</p>
-						{% else %}
-							<legend><h2>Results</h2></legend>
-							<p>First film found with matching result:<br>{{ result }}</p>
-							<!-- <table>
-								<tr>
-									<th>Film ID</th>
-									<th>Film Title</th>
-									<th>Year Released</th>
-									<th>Rating</th>
-									<th>Duration</th>
-									<th>Genre</th>
-								</tr>
-								{% for film in result %}
-								<tr>
-									<td>{{ film[0] }}</td>
-									<td>{{ film[1] }}</td>
-									<td>{{ film[2] }}</td>
-									<td>{{ film[3] }}</td>
-									<td>{{ film[4] }}</td>
-									<td>{{ film[5] }}</td>
-								</tr>
-								{% endfor %}
-							</table> -->
-						{% endif %}
-					{% endfor %}
+					<legend><h2>Search Results</h2></legend>
+					{% if 'not found' in search_results %}
+					<p>{{ search_results['not found'] }}</p>
+
+					{% else %}
+						<table>
+							<tr>
+								<th>Film ID</th>
+								<th>Film Title</th>
+								<th>Year Released</th>
+								<th>Rating</th>
+								<th>Duration</th>
+								<th>Genre</th>
+							</tr>
+							{% for film in search_results %}
+							<tr>
+								<td>{{ film['id'] }}</td>
+								<td>{{ film['title'] }}</td>
+								<td>{{ film['year_released'] }}</td>
+								<td>{{ film['rating'] }}</td>
+								<td>{{ film['duration'] }}</td>
+								<td>{{ film['genre'] }}</td>
+							</tr>
+							{% endfor %}
+						</table>
+					{% endif %}
 				</fieldset>
 				<br>
 			{% else %}

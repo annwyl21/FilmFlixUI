@@ -40,9 +40,26 @@ button {
 	font-weight: 400;
 }
 
+.menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin: 5px;
+	gap: 5px;
+}
+
+.option {
+	font-size: 1rem;
+	font-weight: 200;
+}
+
 #admin {
 	background-color: rgba(128, 0, 128, 0.173);
 	font-weight: 100;
+}
+
+.alt_options {
+	background-color: #39c10c48;
 }
 
 :any-link {
@@ -63,7 +80,7 @@ fieldset {
 	padding: 15px 0px;
 }
 
-input {
+input, select {
 	accent-color: var(--pistachio);
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	font-size: 1.5rem;
@@ -72,6 +89,16 @@ input {
 	background-color: var(--pistachio);
 	color: var(--umber);
 	padding: 5px 10px;
+}
+
+#genre {
+	background-color: rgba(128, 0, 128, 0.344);
+}
+
+.genre {
+	border-radius: 5px;
+	margin: 35px;
+	padding: 10px;
 }
 
 img {
@@ -84,6 +111,20 @@ img {
 	border-style: dashed;
 	border-width: 5px;
 	border-color: black;
+}
+
+li {
+	font-size: 1.2rem;
+}
+
+.modify {
+	display: flex;
+	justify-content: space-around;
+}
+
+.exit {
+	display: flex;
+	justify-content: space-between;
 }
 
 @media screen and (max-width: 1200px){
