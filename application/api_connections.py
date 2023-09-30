@@ -16,6 +16,27 @@ class ApiConnect():
 		films = response
 		return films
 	
+	def get_tail(self):
+		path = 'api/films'
+		url = self.endpoint + path
+
+		request = requests.get(url)
+		response = request.json()
+
+		films = response
+		tail = films[-5:]
+		return tail
+	
+	def populate_field_selection(self):
+		path = 'api/populate'
+		url = self.endpoint + path
+
+		request = requests.get(url)
+		response = request.json()
+
+		selections = response
+		return selections
+	
 	def check_film(self, word_to_lookup):
 		path = 'api/check'
 		url = self.endpoint + path

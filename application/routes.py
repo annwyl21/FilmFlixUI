@@ -8,7 +8,31 @@ my_api = ApiConnect()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+	films = my_api.get_tail()
+	error = ''
+	selections = {}
+	form = DetailsForm()
+
+	if request.method == 'POST':
+		word_to_lookup = form.word_to_lookup.data
+
+		if word_to_lookup:
+			check = {'word': word_to_lookup}
+			films_found = my_api.check_film(check)
+
+		else:
+			error = 'Required Information Incomplete'
+		films = my_api.get_tail()
+		return render_template('index.html', form=form, films=films, films_found=films_found)
+		 
+	return render_template('index.html', form=form, films=films, message=error, confirmation='')
+
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
 	films = my_api.get_films()
+	selections = my_api.populate_field_selection()
+	ratings = selections['distinct_ratings']
+	genres = selections['distinct_genres']
 	error = ''
 	form = DetailsForm()
 
@@ -42,6 +66,6 @@ def index():
 		else:
 			error = 'Required Information Incomplete'
 		films = my_api.get_films()
-		return render_template('index.html', form=form, films=films, confirmation=confirm)
+		return render_template('admin.html', form=form, films=films, confirmation=confirm)
 		 
-	return render_template('index.html', form=form, films=films, message=error, confirmation='')
+	return render_template('admin.html', form=form, films=films, message=error, confirmation='', ratings=ratings, genres=genres)
