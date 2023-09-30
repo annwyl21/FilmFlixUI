@@ -1,9 +1,9 @@
 :root {
-	--umber: #352c24;
-	--wintergreen: #49785f;
-	--seafoam: #b4daa7;
-	--pistachio: #f5f4c3;
-	--twinflame: #c2552e;
+	--umber: #4D5C60;
+	--wintergreen: #525266;
+	--seafoam: #D1E0DE;
+	--pistachio: #EEF4CE;
+	--twinflame: #4D5C60;
 	--white: white;
 }
 
@@ -92,7 +92,7 @@ input, select {
 }
 
 #genre {
-	background-color: rgba(128, 0, 128, 0.344);
+	background-color: rgba(128, 0, 128, 0.173);
 }
 
 .genre {

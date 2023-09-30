@@ -61,10 +61,11 @@ def admin(action):
 			
 		elif film_id and fieldname and fieldvalue:
 			update = {'film_id': film_id, 'fieldname': fieldname, 'fieldvalue': fieldvalue}
+			print(update)
 			confirm = my_api.update_film(update)
 
 		elif word_to_lookup:
-			check = {'word': word_to_lookup}
+			check = {"word": word_to_lookup}
 			confirm = my_api.check_film(check)
 
 		elif id_to_delete:

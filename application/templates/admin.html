@@ -126,38 +126,62 @@
 
 		<div>
 			{% if confirmation %}
-			<fieldset>
-				<legend>Database Response:</legend>
-				<p>{{ confirmation }}</p>
+				<fieldset>
+					<legend>Database Response:</legend>
+						{% if 'not found' in confirmation or 'error' in confirmation or 'success' in confirmation %}
+							<p>{{ confirmation }}</p>
+								
+						{% else %}
+							<table>
+								<tr>
+									<th>Film ID</th>
+									<th>Film Title</th>
+									<th>Year Released</th>
+									<th>Rating</th>
+									<th>Duration</th>
+									<th>Genre</th>
+								</tr>
+								{% for film in confirmation %}
+								<tr>
+									<td>{{ film['id'] }}</td>
+									<td>{{ film['title'] }}</td>
+									<td>{{ film['year_released'] }}</td>
+									<td>{{ film['rating'] }}</td>
+									<td>{{ film['duration'] }}</td>
+									<td>{{ film['genre'] }}</td>
+								</tr>
+								{% endfor %}
+							</table>
 				
-			</fieldset>
-			<br>
-			<div class="exit">
-				<button class="alt_options"><a href="/admin/none">See database</a></button>
-			</div>
+				{% endif %}
+				</fieldset>
+				<br>
+				<div class="exit">
+					<button class="alt_options"><a href="/admin/none">See database</a></button>
+				</div>
 
 			{% else %}
-			<h2>Films Available:</h2>
-			<table>
-				<tr>
-					<th>Film ID</th>
-					<th>Film Title</th>
-					<th>Year Released</th>
-					<th>Rating</th>
-					<th>Duration</th>
-					<th>Genre</th>
-				</tr>
-				{% for film in films %}
-				<tr>
-					<td>{{ film['id'] }}</td>
-					<td>{{ film['title'] }}</td>
-					<td>{{ film['year_released'] }}</td>
-					<td>{{ film['rating'] }}</td>
-					<td>{{ film['duration'] }}</td>
-					<td>{{ film['genre'] }}</td>
-				</tr>
-				{% endfor %}
-			</table>
+				<h2>Films Available:</h2>
+				<table>
+					<tr>
+						<th>Film ID</th>
+						<th>Film Title</th>
+						<th>Year Released</th>
+						<th>Rating</th>
+						<th>Duration</th>
+						<th>Genre</th>
+					</tr>
+					{% for film in films %}
+					<tr>
+						<td>{{ film['id'] }}</td>
+						<td>{{ film['title'] }}</td>
+						<td>{{ film['year_released'] }}</td>
+						<td>{{ film['rating'] }}</td>
+						<td>{{ film['duration'] }}</td>
+						<td>{{ film['genre'] }}</td>
+					</tr>
+					{% endfor %}
+				</table>
 
 			{% endif %}
 		</div>

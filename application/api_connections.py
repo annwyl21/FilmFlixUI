@@ -37,7 +37,7 @@ class ApiConnect():
 		selections = response
 		return selections
 	
-	def check_film(self, word_to_lookup):
+	def check_film(self, word):
 		path = 'api/check'
 		url = self.endpoint + path
 
@@ -45,7 +45,7 @@ class ApiConnect():
 			'Content-type': 'application/json'
 		}
 
-		request = requests.post(url, headers=headers, json=word_to_lookup)
+		request = requests.post(url, headers=headers, json=word)
 		response = request.json()
 
 		confirmation = response
