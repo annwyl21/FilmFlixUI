@@ -19,8 +19,11 @@ def index():
 		word_to_lookup = form.word_to_lookup.data
 
 		if word_to_lookup:
-			check = {'word': word_to_lookup}
-			search_results = my_api.check_film(check)
+			if word_to_lookup.isalnum():
+				check = {'word': word_to_lookup}
+				search_results = my_api.check_film(check)
+			else:
+				error = "Data Entry Error"
 
 		else:
 			error = 'Required Information Incomplete'
