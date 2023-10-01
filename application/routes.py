@@ -25,7 +25,7 @@ def index():
 		else:
 			error = 'Required Information Incomplete'
 		films = my_api.get_tail()
-		return render_template('index.html', form=form, films=films, search_results=search_results)
+		return render_template('index.html', form=form, films=films, search_results=search_results, message=error)
 		 
 	return render_template('index.html', form=form, films=films, message=error, confirmation='')
 
