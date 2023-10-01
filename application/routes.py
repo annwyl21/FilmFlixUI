@@ -61,20 +61,27 @@ def admin(action):
 
 		id_to_delete = form.id_to_delete.data
 
+		# CREATE
 		if title and year_released and rating and genre and duration:
-			add = {"title": title, "duration": duration, "rating": rating, "genre": genre, "year_released": year_released}
+
+			add = {"title": str(title), "duration": str(duration), "rating": str(rating), "genre": str(genre), "year_released": str(year_released)}
+			print(add)
 			confirm = my_api.add_film(add)
-			
+		
+		# UPDATE
 		elif film_id and fieldname and fieldvalue:
-			update = {"film_id": film_id, "fieldname": fieldname, "fieldvalue": fieldvalue}
+			update = {"film_id": str(film_id), "fieldname": str(fieldname), "fieldvalue": str(fieldvalue)}
 			print(update)
 			confirm = my_api.update_film(update)
 
+		# READ
 		elif word_to_lookup:
-			check = {"word": word_to_lookup}
+			check = {"word": str(word_to_lookup)}
 			confirm = my_api.check_film(check)
 
+		# DELETE
 		elif id_to_delete:
+			id_to_delete = str(id_to_delete)
 			confirm = my_api.delete_film(id_to_delete)
 
 		else:
