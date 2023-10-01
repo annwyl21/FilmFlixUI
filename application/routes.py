@@ -53,14 +53,20 @@ def admin(action):
 		duration = form.duration.data
 		fieldname = form.fieldname.data
 		fieldvalue = form.fieldvalue.data
+
+		if fieldname == 'genre':
+			for num, distinct_genre in enumerate(genres, 1):
+				if fieldvalue == str(num):
+					fieldvalue = distinct_genre
+
 		id_to_delete = form.id_to_delete.data
 
 		if title and year_released and rating and genre and duration:
-			add = {'title': title, 'duration': duration, 'rating': rating, 'genre': genre, 'year_released': year_released}
+			add = {"title": title, "duration": duration, "rating": rating, "genre": genre, "year_released": year_released}
 			confirm = my_api.add_film(add)
 			
 		elif film_id and fieldname and fieldvalue:
-			update = {'film_id': film_id, 'fieldname': fieldname, 'fieldvalue': fieldvalue}
+			update = {"film_id": film_id, "fieldname": fieldname, "fieldvalue": fieldvalue}
 			print(update)
 			confirm = my_api.update_film(update)
 
