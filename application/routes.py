@@ -24,9 +24,11 @@ def index():
 				search_results = my_api.check_film(check)
 			else:
 				error = "Data Entry Error"
-
+				search_results = ''
+		
 		else:
 			error = 'Required Information Incomplete'
+			search_results = ''
 		films = my_api.get_tail()
 		return render_template('index.html', form=form, films=films, search_results=search_results, message=error)
 		 
