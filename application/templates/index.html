@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="form">
-		{{ message }}
+		
 		<form method="POST" action="">
 		{{ form.hidden_tag() }}
 
@@ -42,6 +42,7 @@
 			{% if search_results %}
 				<fieldset>
 					<legend><h2>Search Results</h2></legend>
+					{{ message }}
 					{% if 'not found' in search_results %}
 					<p>{{ search_results['not found'] }}</p>
 
