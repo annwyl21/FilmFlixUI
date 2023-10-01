@@ -5,37 +5,38 @@
 <div class="title">
 			
 	<img src="../static/headphones-4223911_1280.jpg" alt="Headphones Image by OsloMetX from Pixabay">
-
 	<h1>Film Flix</h1>
+
 </div>
 
-	<div class="database">
+<div class="main">
 
-		<div class="form">
-			{{ message }}
-			<form method="POST" action="">
-			{{ form.hidden_tag() }}
+	<div class="adminCentre">
+		<br>
+		<button class="option"><a href="./admin/none">Admin</a></button>
+		<br>
+	</div>
 
-			<div class="my_fieldsets">
-				<div>
-					<fieldset>
-						<legend><h3>Find a film</h3></legend>
-						<label for="word_to_lookup">Look for a word in the title</label>
-						<br>
-						<input type="text" id="word_to_lookup" name="word_to_lookup">
-						<br>
-					</fieldset>
+	<div class="form">
+		{{ message }}
+		<form method="POST" action="">
+		{{ form.hidden_tag() }}
 
+		<div>
+
+			<fieldset>
+				<legend><h3>Find a film</h3></legend>
+				<label for="word_to_lookup">Look for a word in the title</label>
 				<br>
-			</div>
-			
-			<div>
+				<input type="text" id="word_to_lookup" name="word_to_lookup">
+				<br><br>
 				<button type="submit">Submit</button>
-				<button id="admin"><a href="./admin/none">Admin</a></button>
-			</div>
-			
-		</form>
+			</fieldset>
+
+		<br>
 		</div>
+		
+		</form>
 
 		<div>
 			{% if search_results %}
@@ -95,6 +96,6 @@
 			{% endif %}
 		</div>
 
-	</div>
+</div>
 
 {% endblock %}
