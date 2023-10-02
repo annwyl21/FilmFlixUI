@@ -130,9 +130,26 @@ li {
 	justify-content: space-between;
 }
 
-@media screen and (max-width: 1200px){
-	.my_fieldsets {
-		flex-direction: column;
-		align-items: center;
+@media (max-width: 900px) {
+	
+	html {
+		font-size: 12px;
 	}
+
+}
+
+@media (max-width: 550px) {
+	
+	html {
+		font-size: 8px;
+	}
+
+	img {
+		max-height: 50px;
+	}
+
+	.menu {
+		flex-direction: column;
+	}
+
 }
