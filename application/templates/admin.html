@@ -132,8 +132,14 @@
 			{% if confirmation %}
 				<fieldset>
 					<legend>Database Response:</legend>
-						{% if 'not found' in confirmation or 'error' in confirmation or 'success' in confirmation %}
-							<p>{{ confirmation }}</p>
+						{% if 'not found' in confirmation %}
+							<p>No results found</p>
+						
+						{% elif 'error' in confirmation %}
+							<p>Sorry, that message wasn't understood</p>
+
+						{% elif 'success' in confirmation %}
+							<p>{{ confirmation['success'] }}</p>
 								
 						{% else %}
 							<table>

@@ -70,13 +70,11 @@ def admin(action):
 		if title and year_released and rating and genre and duration:
 
 			add = {"title": str(title), "duration": str(duration), "rating": str(rating), "genre": str(genre), "year_released": str(year_released)}
-			print(add)
 			confirm = my_api.add_film(add)
 		
 		# UPDATE
 		elif film_id and fieldname and fieldvalue:
 			update = {"film_id": str(film_id), "fieldname": str(fieldname), "fieldvalue": str(fieldvalue)}
-			print(update)
 			confirm = my_api.update_film(update)
 
 		# READ
