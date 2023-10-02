@@ -61,10 +61,6 @@ button {
 	color: var(--wintergreen);
 }
 
-.alt_options {
-	background-color: #39c10c48;
-}
-
 :any-link {
 	color: var(--wintergreen);
 	text-decoration: none;
@@ -74,13 +70,6 @@ fieldset {
 	border-radius: 5px;
 	color: var(--umber);
 	border-color: var(--umber);
-}
-
-.my_fieldsets {
-	/* display: flex; */
-	/* flex-direction: row; */
-	/* justify-content: space-around; */
-	padding: 15px 0px;
 }
 
 input, select {
@@ -100,8 +89,8 @@ input, select {
 
 .genre {
 	border-radius: 5px;
-	margin: 35px;
-	padding: 10px;
+	margin: 25px;
+	padding: 5px;
 }
 
 img {
@@ -130,10 +119,18 @@ li {
 	justify-content: space-between;
 }
 
+ol {
+	padding: 5px 35px;
+}
+
 @media (max-width: 900px) {
 	
 	html {
 		font-size: 12px;
+	}
+
+	ol {
+		padding: 5px 25px;
 	}
 
 }
@@ -148,8 +145,16 @@ li {
 		max-height: 50px;
 	}
 
-	.menu {
-		flex-direction: column;
+	input, select {
+		font-size: 1rem;
+	}
+
+	button {
+		font-size: 1rem;
+	}
+
+	ol {
+		padding: 5px 15px;
 	}
 
 }
