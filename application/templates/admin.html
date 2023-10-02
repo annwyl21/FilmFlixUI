@@ -33,7 +33,7 @@
 							<legend><h3>Find a film</h3></legend>
 							<label for="word_to_lookup">Look for a word in the title</label>
 							<br>
-							<input type="text" id="word_to_lookup" name="word_to_lookup">
+							<input type="text" id="word_to_lookup" name="word_to_lookup" placeholder="&#10068;">
 							<br>
 						</fieldset>
 					</div>
@@ -44,7 +44,7 @@
 							<legend><h3>Remove a film</h3></legend>
 							<label for="id_to_delete">Film ID</label>
 							<br>
-							<input type="number" id="id_to_delete" name="id_to_delete">
+							<input type="number" id="id_to_delete" name="id_to_delete" placeholder="&#128290;">
 							<br>
 						</fieldset>
 					</div>
@@ -55,11 +55,11 @@
 							<legend><h3>Add a Film</h3></legend>
 							<label for="title">Title:</label>
 							<br>
-							<input type="text" id="title" name="title">
+							<input type="text" id="title" name="title" placeholder="&#10068;">
 							<br>
 							<label for="year_released">Year Released:</label>
 							<br>
-							<input type="number" id="year_released" name="year_released" min="1888" max="{{year}}">
+							<input type="number" id="year_released" name="year_released" min="1888" max="{{year}}" placeholder="1888">
 							<br><br>
 							<select id="rating" name="rating">
 								<option value="" selected="selected">Select a Rating</option>
@@ -74,7 +74,7 @@
 							<br>
 							<label for="duration">Duration:</label>
 							<br>
-							<input type="number" id="duration" name="duration" min="1" max="874">
+							<input type="number" id="duration" name="duration" min="1" max="874" placeholder="&#9201;&#65039;">
 							<br>
 						</fieldset>
 
@@ -94,7 +94,7 @@
 							<legend><h3>Amend Film Details</h3></legend>
 							<label for="film_id">Film ID</label>
 							<br>
-							<input type="number" id="film_id" name="film_id">
+							<input type="number" id="film_id" name="film_id" placeholder="&#128290;">
 							<br><br>
 							<select id="fieldname" name="fieldname">
 								<option value="" selected="selected">Select Field to Amend</option>
@@ -107,7 +107,7 @@
 							<br><br>
 							<label for="fieldvalue">New value:</label>
 							<br>
-							<input type="text" id="fieldvalue" name="fieldvalue">
+							<input type="text" id="fieldvalue" name="fieldvalue" placeholder="&#10067;">
 							<br>
 						</fieldset>
 
