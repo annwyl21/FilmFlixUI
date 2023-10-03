@@ -91,6 +91,8 @@ def admin(action):
 			confirm = ''
 		films = my_api.get_films()
 		selections = my_api.populate_field_selection()
+		ratings = selections['distinct_ratings']
+		genres = selections['distinct_genres']
 		return render_template('admin.html', form=form, films=films, message=error, confirmation=confirm)
 		 
 	return render_template('admin.html', form=form, films=films, message=error, confirmation='', ratings=ratings, genres=genres, action=action, year=year)
