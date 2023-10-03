@@ -68,7 +68,6 @@ def admin(action):
 
 		# CREATE
 		if title and year_released and rating and genre and duration:
-
 			add = {"title": str(title), "duration": str(duration), "rating": str(rating), "genre": str(genre), "year_released": str(year_released)}
 			confirm = my_api.add_film(add)
 		
@@ -91,6 +90,7 @@ def admin(action):
 			error = 'Incomplete Information not submitted'
 			confirm = ''
 		films = my_api.get_films()
+		selections = my_api.populate_field_selection()
 		return render_template('admin.html', form=form, films=films, message=error, confirmation=confirm)
 		 
 	return render_template('admin.html', form=form, films=films, message=error, confirmation='', ratings=ratings, genres=genres, action=action, year=year)
