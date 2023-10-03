@@ -70,15 +70,11 @@ def admin(action):
 		if title and year_released and rating and genre and duration:
 			add = {"title": str(title), "duration": str(duration), "rating": str(rating), "genre": str(genre), "year_released": str(year_released)}
 			confirm = my_api.add_film(add)
-			selections = my_api.populate_field_selection()
-			genres = selections['distinct_genres']
 		
 		# UPDATE
 		elif film_id and fieldname and fieldvalue:
 			update = {"film_id": str(film_id), "fieldname": str(fieldname), "fieldvalue": str(fieldvalue)}
 			confirm = my_api.update_film(update)
-			selections = my_api.populate_field_selection()
-			genres = selections['distinct_genres']
 
 		# READ
 		elif word_to_lookup:
@@ -89,13 +85,13 @@ def admin(action):
 		elif id_to_delete:
 			id_to_delete = str(id_to_delete)
 			confirm = my_api.delete_film(id_to_delete)
-			selections = my_api.populate_field_selection()
-			genres = selections['distinct_genres']
 
 		else:
 			error = 'Incomplete Information not submitted'
 			confirm = ''
 		films = my_api.get_films()
-		return render_template('admin.html', form=form, films=films, message=error, confirmation=confirm)
+		selections = my_api.populate_field_selection()
+		genres = selections['distinct_genres']
+		return render_template('admin.html', form=form, films=films, message=error, confirmation=confirm, genres=genres, action=action, year=year)
 		 
 	return render_template('admin.html', form=form, films=films, message=error, confirmation='', ratings=ratings, genres=genres, action=action, year=year)

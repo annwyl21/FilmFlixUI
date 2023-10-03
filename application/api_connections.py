@@ -5,6 +5,7 @@ from flask import Flask, jsonify, render_template, request
 class ApiConnect():
 	def __init__(self):
 		self.endpoint = 'https://filmflixrestapi.onrender.com/'
+		#self.endpoint = 'http://localhost:5000/'
 
 	def get_films(self):
 		path = 'api/films'
